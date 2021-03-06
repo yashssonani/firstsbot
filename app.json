@@ -77,6 +77,11 @@
       "value": "C.UTF-8"
     }
   },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
   "stack": "container",
   "formation": {
     "worker": {
