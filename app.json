@@ -1,22 +1,12 @@
 {
   "name": "Telegram Torrent Leecher",
-  "description": "A Telegram Torrent (and youtube-dl) Leecher based on Pyrogram. Powered by @ThankTelegram!",
+  "description": "hell",
   "keywords": [
     "telegram",
-    "best",
-    "indian",
-    "pyrogram",
-    "torrent",
-    "3",
-    "plugin",
-    "modular",
-    "productivity",
-    "youtube-dl",
-    "leecher"
   ],
-  "repository": "https://github.com/SpEcHiDe/PublicLeech",
-  "website": "https://github.com/SpEcHiDe/PublicLeech",
-  "logo": "https://telegra.ph/file/8b973b270f4f380a427b1.png",
+  "repository": "h",
+  "website": "h",
+  "logo": "h",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode",
