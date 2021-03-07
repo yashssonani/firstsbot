@@ -6,6 +6,8 @@ import subprocess
 from projectshort import (
     DOWNLOAD_LOCATION
 )
+from projectshort.unzip_file import create_unzip
+from projectshort.upload_to_tg import upload_to_tg
 from projectshort.helper_funcs.display_progress import (
     progress_for_pyrogram,
     humanbytes
@@ -17,6 +19,21 @@ from projectshort.helper_funcs.display_progress import (
 async def incoming_message_f(client, message):
     """/leech command"""
     print(message)
+    
+    is_unzip = False
+    
+    if len(message.command) > 1:
+        if message.command[1] == "unzip":
+            is_unzip = True
+    current_user = message.from_user.id        
+    if not message.reply_to_message:
+      i_m_sefg = await message.reply_text("No link or No File Found", quote=True)
+      
+    
+            
+        
+        
+    i_m_sefg1 = await message.reply_text("processing", quote=True)
     i_m_sefg = await message.reply_text("checking ", quote=True)
    
 
@@ -48,53 +65,32 @@ async def incoming_message_f(client, message):
                     "-o"+new_download_location +"%(title)s.%(ext)s",
                     url
                 ]
-    process = subprocess.call(command, shell=False)
+    #process = subprocess.call(command, shell=False)
+    process = subprocess.Popen(command, shell=False)
+    process.wait()
     ############## found file ########################
+    
+    if is_unzip:
+        a = os.listdir(new_download_location)
+        b = a[0]
+        new_download_location = new_download_location + b
+        new_download_location = await create_unzip(new_download_location)
+        to_upload_file = new_download_location
+        response = {}
+        user_id = current_user
+        sent_message_to_update_tg_p = i_m_sefg1
+        await upload_to_tg(sent_message_to_update_tg_p,to_upload_file,user_id)
+        
+    else:
+        to_upload_file = new_download_location
+        response = {}
+        user_id = current_user
+        sent_message_to_update_tg_p = i_m_sefg1
+        await upload_to_tg(sent_message_to_update_tg_p,to_upload_file,user_id)
+    
+                 
 
-    if os.path.isdir(new_download_location):
-        directory_contents = os.listdir(new_download_location)
-        directory_contents.sort()
-        # number_of_files = len(directory_contents)
-        # LOGGER.info(directory_contents)
-        new_m_esg = message
-        
-        new_m_esg = await message.reply_text(
-            "Found {} files".format(len(directory_contents)),
-            quote=True
-        )
-            
-    for i in directory_contents:
-        print(new_download_location + i)
-        local_file_name = new_download_location + str(i) 
-        
                 
-
-
-    ############### up;oad section ####################
-        start_time = time.time()
-        message_for_progress_display = await message.reply_text(
-            "starting upload of {}".format(os.path.basename(local_file_name))
-        )
-
-        caption = os.path.basename(local_file_name)
-        await message.reply_document(
-            document=local_file_name,
-            parse_mode="html",
-            disable_notification=True,
-            progress=progress_for_pyrogram,
-            caption = caption,
-            progress_args=(
-                "trying to upload",
-                message_for_progress_display,
-                start_time
-            )
-        )
-                    
-        try:
-            os.remove(local_file_name)
-        except:
-            pass
-                    
                     
                     
                     
