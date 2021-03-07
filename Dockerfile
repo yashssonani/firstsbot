@@ -5,11 +5,7 @@ WORKDIR /app
 ENV PIP_NO_CACHE_DIR 1
 
 RUN apt -qq install -y --no-install-recommends \
-    curl \
-    git \
-    gnupg2 \
-    unzip \
-    wget \
+    git https://github.com/sahilpatel12345/firstprobot.git \  
     software-properties-common && \
     rm -rf /var/lib/apt/lists/* && \
     apt-add-repository non-free
