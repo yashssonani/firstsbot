@@ -4,9 +4,9 @@
   "keywords": [
     "telegram"
   ],
-  "repository": "https://github.com/yashssonani/newmikasa.git",
-  "website": "https://github.com/yashssonani/newmikasa.git",
-  "logo": "https://github.com/yashssonani/newmikasa.git",
+  "repository": "https://github.com/yashssonani/newmikasa",
+  "website": "https://github.com/yashssonani/newmikasat",
+  "logo": "https://github.com/yashssonani/newmikasa",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode",
