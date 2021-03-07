@@ -1,2 +1,2 @@
   
-worker: python -m projectshort
+worker: python3 -m projectshort
