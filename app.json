@@ -10,7 +10,11 @@
   
   "stack": "heroku-20",
 
-
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode",
@@ -81,12 +85,8 @@
       "value": "C.UTF-8"
     }
   },
-  "buildpacks": [
-    {
-      "url": "heroku/python"
-    }
-  ],
-  "stack": "container",
+  
+  
   "formation": {
     "worker": {
       "quantity": 1,
