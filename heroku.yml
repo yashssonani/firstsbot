@@ -1,3 +1,3 @@
 build:
   docker:
-    worker: python -m firstprobot
+    worker: Docerfile
