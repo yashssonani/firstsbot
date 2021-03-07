@@ -76,12 +76,13 @@ async def incoming_message_f(client, message):
             "starting upload of {}".format(os.path.basename(local_file_name))
         )
 
-
+        caption = os.path.basename(local_file_name)
         await message.reply_document(
             document=local_file_name,
             parse_mode="html",
             disable_notification=True,
             progress=progress_for_pyrogram,
+            caption = caption,
             progress_args=(
                 "trying to upload",
                 message_for_progress_display,
