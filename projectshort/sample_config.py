@@ -18,18 +18,13 @@ from projectshort.get_cfg import get_config
 
 class Config:
     # get a token from @BotFather
-    TG_BOT_TOKEN = get_config("TG_BOT_TOKEN", should_prompt=True)
+    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
     # The Telegram API things
-    APP_ID = int(get_config("APP_ID", should_prompt=True))
-    API_HASH = get_config("API_HASH", should_prompt=True)
+    APP_ID = int(os.environ.get("APP_ID", 123456))
+    API_HASH = os.environ.get("API_HASH")
     # Get these values from my.telegram.org
     # array to store the channel ID who are authorized to use the bot
-    AUTH_CHANNEL = set(
-        int(x) for x in get_config(
-            "AUTH_CHANNEL",
-            should_prompt=True
-        ).split()
-    )
+    AUTH_CHANNEL = int(os.environ.get("AUTH_CHANNEL", -100))
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = get_config("DOWNLOAD_LOCATION", "./DOWNLOADS")
     # Telegram maximum file upload size
