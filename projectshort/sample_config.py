@@ -96,6 +96,6 @@ class Config:
     SUDO_USERS = set(
         int(x) for x in os.environ.get(
             "SUDO_USERS",
-            should_prompt=True
+            ""
         ).split()
     )
