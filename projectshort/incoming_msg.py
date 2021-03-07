@@ -41,7 +41,7 @@ async def incoming_message_f(client, message):
                     "--console-title",
                     "-c",
                     "--retries=10",
-                    "-o "+new_download_location +"%(title)s.%(ext)s",
+                    "-o"+new_download_location +"%(title)s.%(ext)s",
                     url
                 ]
     process = subprocess.call(command, shell=False)
@@ -60,28 +60,30 @@ async def incoming_message_f(client, message):
         )
             
     for i in directory_contents:
-        print(new_download_location + i)        
+        print(new_download_location + i)
+        local_file_name = new_download_location + str(i) 
+        
                 
 
 
     ############### up;oad section ####################
-    start_time = time.time()
-    message_for_progress_display = await message.reply_text(
-        "starting upload of {}".format(os.path.basename(local_file_name))
-    )
-                
-            
-    # await message.reply_document(
-    #     document=local_file_name,
-    #     parse_mode="html",
-    #     disable_notification=True,
-    #     progress=progress_for_pyrogram,
-    #     progress_args=(
-    #         "trying to upload",
-    #         message_for_progress_display,
-    #         start_time
-    #     )
-    # )
+        start_time = time.time()
+        message_for_progress_display = await message.reply_text(
+            "starting upload of {}".format(os.path.basename(local_file_name))
+        )
+
+
+        await message.reply_document(
+            document=local_file_name,
+            parse_mode="html",
+            disable_notification=True,
+            progress=progress_for_pyrogram,
+            progress_args=(
+                "trying to upload",
+                message_for_progress_display,
+                start_time
+            )
+        )
                     
 
                     
