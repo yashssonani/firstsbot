@@ -18,7 +18,7 @@ async def incoming_message_f(client, message):
     """/leech command"""
     print(message)
     i_m_sefg = await message.reply_text("checking ", quote=True)
-    local_file_name = 'C:\\Users\\Buddha\\Desktop\\Python\\Publicleech\\PublicLeech-master_2\\demo.mp4'
+   
 
     new_download_location = os.path.join(DOWNLOAD_LOCATION,str(time.time()))
     new_download_location = new_download_location + "/" 
@@ -32,8 +32,11 @@ async def incoming_message_f(client, message):
         print(url)
     except:
         url = message.reply_to_message 
-        print(url,"except")   
-
+        print(url,"except")
+    try:
+        i_m_sefg = await i_m_sefg.edit_text("trying to download", quote=True)
+    except:
+        pass
 
     command =[
                     "youtube-dl",
