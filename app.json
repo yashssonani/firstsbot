@@ -7,6 +7,10 @@
   "repository": "https://github.com/yashssonani/newmikasa",
   "website": "https://github.com/yashssonani/newmikasat",
   "logo": "https://github.com/yashssonani/newmikasa",
+  
+  "stack": "heroku-20",
+
+
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode",
