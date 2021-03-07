@@ -63,5 +63,9 @@ async def upload_to_tg(
                 start_time
             )
         )
-        
-        #os.remove(local_file_name)    
+        try:
+            os.remove(local_file_name) 
+            await message_for_progress_display.delete()
+        except:
+            pass
+            
