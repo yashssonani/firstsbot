@@ -21,11 +21,11 @@ class Config:
     # get a token from @BotFather
     TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
     # The Telegram API things
-    APP_ID = int(os.environ.get("APP_ID", 123456))
+    APP_ID = int(os.environ.get("APP_ID", ""))
     API_HASH = os.environ.get("API_HASH")
     # Get these values from my.telegram.org
     # array to store the channel ID who are authorized to use the bot
-    AUTH_CHANNEL = int(os.environ.get("AUTH_CHANNEL", -100))
+    AUTH_CHANNEL = int(os.environ.get("AUTH_CHANNEL", ""))
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = get_config("DOWNLOAD_LOCATION", "./DOWNLOADS")
     # Telegram maximum file upload size
