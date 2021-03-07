@@ -89,7 +89,10 @@ async def incoming_message_f(client, message):
             )
         )
                     
-
+        try:
+            os.remove(local_file_name)
+        except:
+            pass
                     
                     
                     
