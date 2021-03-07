@@ -34,9 +34,9 @@ async def incoming_message_f(client, message):
         url = message.reply_to_message 
         print(url,"except")
     try:
-        i_m_sefg = await i_m_sefg.edit_text("trying to download", quote=True)
+        i_m_sefg = await i_m_sefg.edit_text("trying to download")
     except:
-        message.edit_text("trying to download", quote=True)
+        
         pass
 
     command =[
